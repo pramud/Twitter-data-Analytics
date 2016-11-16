@@ -42,3 +42,9 @@ def preprocess(s, lowercase=False):
 tweet = "RT @marcobonzanini: just an example! :D http://example.com #NLP"
 print(preprocess(tweet))
 # ['RT', '@marcobonzanini', ':', 'just', 'an', 'example', '!', ':D', 'http://example.com', '#NLP']
+
+with open('mytweets.json', 'r') as f:
+    for line in f:
+        tweet = json.loads(line)
+        tokens = preprocess(tweet['text'])
+        do_something_else(tokens)
